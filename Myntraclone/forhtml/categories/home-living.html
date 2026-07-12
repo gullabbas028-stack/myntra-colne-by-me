@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home & Living - Myntra Clone</title>
+  <link rel="stylesheet" href="../../css/index.css?v=20260712-2" />
+  <link rel="stylesheet" href="../../css/bag.css?v=20260712-2" />
+</head>
+<body>
+  <header>
+    <div class="logo_container">
+      <a href="../index.html"><img class="myntra_home" src="../../../images/myntra_logo.webp" alt="Myntra Home" /></a>
+    </div>
+    <nav class="nav_bar">
+      <a href="men.html">Men</a>
+      <a href="women.html">Women</a>
+      <a href="kids.html">Kids</a>
+      <a href="home-living.html">Home & Living</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="studio.html">Studio <sup>New</sup></a>
+    </nav>
+    <div class="search_bar">
+      <input class="search_input" placeholder="Search for products, brands and more" />
+    </div>
+    <div class="action_bar">
+      <a class="action_container" href="../bag.html">
+        <span class="action_name">Bag</span>
+        <span class="bag-item-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-banner">
+      <img src="../../../images/home-1.jpg" alt="Home decor collection" />
+      <div class="hero-text">
+        <h1>Home Essentials</h1>
+        <p>Style your space with comfort and charm.</p>
+      </div>
+    </section>
+    <div class="items-container"></div>
+  </main>
+
+  <script>
+    const categoryItems = [
+      { id: '013', title: 'Minimal Stainless Steel Watch', company: 'FOSSIL', price: 4199, original: 6999, discount: 40, image: '../../../images/home-1.jpg' },
+      { id: '014', title: 'Performance Track Jacket', company: 'HRX', price: 1199, original: 1999, discount: 40, image: '../../../images/home-2.jpg' }
+    ];
+
+    const container = document.querySelector('.items-container');
+    container.innerHTML = categoryItems.map(item => `
+      <div class="item-container">
+        <img class="item-image" src="${item.image}" alt="${item.title}" />
+        <div class="company-name">${item.company}</div>
+        <div class="item-name">${item.title}</div>
+        <div class="price">
+          <span class="current-price">Rs ${item.price}</span>
+          <span class="original-price">Rs ${item.original}</span>
+          <span class="discount">(${item.discount}% OFF)</span>
+        </div>
+        <button class="btn-add-bag" onclick="addToBag('${item.id}')">Add to bag</button>
+      </div>
+    `).join('');
+
+    function addToBag(itemId) {
+      const bag = JSON.parse(localStorage.getItem('bagItems') || '[]');
+      bag.push(itemId);
+      localStorage.setItem('bagItems', JSON.stringify(bag));
+      const countEl = document.querySelector('.bag-item-count');
+      if (countEl) countEl.textContent = bag.length;
+    }
+  </script>
+</body>
+</html>

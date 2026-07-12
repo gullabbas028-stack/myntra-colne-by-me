@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Myntra Functional Clone</title>
+    <link rel="stylesheet" href="../css/index.css?v=20260712-2">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header>
+        <div class="logo_container">
+            <a href="#"><img class="myntra_home" src="../../images/myntra_logo.webp" alt="Myntra Home"></a>
+        </div>
+        <nav class="nav_bar">
+            <a href="categories/men.html">Men</a>
+            <a href="categories/women.html">Women</a>
+            <a href="categories/kids.html">Kids</a>
+            <a href="categories/home-living.html">Home & Living</a>
+            <a href="categories/beauty.html">Beauty</a>
+            <a href="categories/studio.html">Studio <sup>New</sup></a>
+        </nav>
+        <div class="search_bar">
+            <span class="material-symbols-outlined search_icon">search</span>
+            <input class="search_input" placeholder="Search for products, brands and more">
+        </div>
+        <div class="action_bar">
+            <div class="action_container">
+                <span class="material-symbols-outlined action_icon">person</span>
+                <span class="action_name">Profile</span>
+            </div>
+
+            <div class="action_container">
+                <span class="material-symbols-outlined action_icon">favorite</span>
+                <span class="action_name">Wishlist</span>
+            </div>
+
+            <a class="action_container" href="bag.html">
+                <span class="material-symbols-outlined action_icon">shopping_bag</span>
+                <span class="action_name">Bag</span>
+                <span class="bag-item-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" aria-label="Promotional carousel">
+            <div class="carousel">
+                <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <img src="../../images/men-1.jpg" alt="Men fashion collection">
+                        <div class="carousel-caption">
+                            <span>Trending now</span>
+                            <h2>Fresh arrivals for men</h2>
+                            <p>Premium essentials for everyday dressing.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../../images/women-1.jpg" alt="Women fashion collection">
+                        <div class="carousel-caption">
+                            <span>New season</span>
+                            <h2>Women’s style edit</h2>
+                            <p>Curated looks from the latest global drops.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../../images/studio-1.jpg" alt="Studio exclusives">
+                        <div class="carousel-caption">
+                            <span>Exclusive</span>
+                            <h2>Studio curated picks</h2>
+                            <p>Editor’s favorites designed to stand out.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" data-slide="0"></button>
+                    <button class="carousel-dot" data-slide="1"></button>
+                    <button class="carousel-dot" data-slide="2"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-chips" aria-label="Shop by category">
+            <a href="categories/men.html" class="chip">Men</a>
+            <a href="categories/women.html" class="chip">Women</a>
+            <a href="categories/kids.html" class="chip">Kids</a>
+            <a href="categories/home-living.html" class="chip">Home & Living</a>
+            <a href="categories/beauty.html" class="chip">Beauty</a>
+            <a href="categories/studio.html" class="chip">Studio</a>
+        </section>
+
+        <section class="section-heading">
+            <h2>Featured Products</h2>
+            <a href="categories/men.html">View all</a>
+        </section>
+
+        <div class="items-container"></div>
+    </main>
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer_column">
+                <h3>ONLINE SHOPPING</h3>
+                <a href="categories/men.html">Men</a>
+                <a href="categories/women.html">Women</a>
+                <a href="categories/kids.html">Kids</a>
+                <a href="categories/home-living.html">Home & Living</a>
+                <a href="categories/beauty.html">Beauty</a>
+            </div>
+
+            <div class="footer_column">
+                <h3>USEFUL LINKS</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">T&amp;C</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Track Orders</a>
+            </div>
+
+            <div class="footer_column">
+                <h3>EXPERIENCE MYNTRA APP</h3>
+                <a href="#">Download on Android</a>
+                <a href="#">Download on iOS</a>
+                <a href="#">Myntra Insider</a>
+                <a href="#">Gift Cards</a>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">© 2023 www.myntra.com. All rights reserved.</div>
+    </footer>
+
+    <div class="cart-drawer-root"></div>
+
+    <script src="../../itme.js/items.js?v=20260712"></script>
+    <script src="../scripts/index.js?v=20260712"></script>
+</body>
+</html>

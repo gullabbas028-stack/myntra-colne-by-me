@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Men - Myntra Clone</title>
+  <link rel="stylesheet" href="../../css/index.css?v=20260712-2" />
+  <link rel="stylesheet" href="../../css/bag.css?v=20260712-2" />
+</head>
+<body>
+  <header>
+    <div class="logo_container">
+      <a href="../index.html"><img class="myntra_home" src="../../../images/myntra_logo.webp" alt="Myntra Home" /></a>
+    </div>
+    <nav class="nav_bar">
+      <a href="men.html">Men</a>
+      <a href="women.html">Women</a>
+      <a href="kids.html">Kids</a>
+      <a href="home-living.html">Home & Living</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="studio.html">Studio <sup>New</sup></a>
+    </nav>
+    <div class="search_bar">
+      <input class="search_input" placeholder="Search for products, brands and more" />
+    </div>
+    <div class="action_bar">
+      <a class="action_container" href="../bag.html">
+        <span class="action_name">Bag</span>
+        <span class="bag-item-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-banner">
+      <img src="../../../images/men-1.jpg" alt="Men fashion collection" />
+      <div class="hero-text">
+        <h1>Men's Essentials</h1>
+        <p>Fresh arrivals curated for everyday style.</p>
+      </div>
+    </section>
+
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="../../../images/men-2.jpg" alt="Men wear" />
+        <h3>Casual Wear</h3>
+      </div>
+      <div class="category-card">
+        <img src="../../../images/men-1.jpg" alt="Active wear" />
+        <h3>Active Wear</h3>
+      </div>
+    </div>
+
+    <div class="items-container"></div>
+  </main>
+
+  <script src="../../../itme.js/items.js?v=20260712"></script>
+  <script>
+    const categoryItems = [
+      { id: '009', title: 'Men Slim Fit Solid Casual Shirt', company: 'HIGHLANDER', price: 799, original: 1499, discount: 47, image: '../../../images/men-2.jpg' },
+      { id: '011', title: 'Men Running Shoes', company: 'PUMA', price: 2399, original: 3999, discount: 40, image: '../../../images/men-1.jpg' },
+      { id: '005', title: 'Pure Cotton T-shirt', company: 'Roadster', price: 489, original: 1399, discount: 65, image: '../../../images/5.jpg' },
+      { id: '006', title: 'Men ReactX Running Shoes', company: 'Nike', price: 14995, original: 14995, discount: 0, image: '../../../images/6.jpg' }
+    ];
+
+    const container = document.querySelector('.items-container');
+    container.innerHTML = categoryItems.map(item => `
+      <div class="item-container">
+        <img class="item-image" src="${item.image}" alt="${item.title}" />
+        <div class="company-name">${item.company}</div>
+        <div class="item-name">${item.title}</div>
+        <div class="price">
+          <span class="current-price">Rs ${item.price}</span>
+          <span class="original-price">Rs ${item.original}</span>
+          <span class="discount">(${item.discount}% OFF)</span>
+        </div>
+        <button class="btn-add-bag" onclick="addToBag('${item.id}')">Add to bag</button>
+      </div>
+    `).join('');
+
+    function addToBag(itemId) {
+      const bag = JSON.parse(localStorage.getItem('bagItems') || '[]');
+      bag.push(itemId);
+      localStorage.setItem('bagItems', JSON.stringify(bag));
+      const countEl = document.querySelector('.bag-item-count');
+      if (countEl) countEl.textContent = bag.length;
+    }
+  </script>
+</body>
+</html>
